@@ -10,13 +10,25 @@ brew tap dufu1991/tap
 
 ## 可用 Cask
 
-### [youran-toolbox](https://github.com/dufu1991/youran-toolbox)
+### [悠然工具箱](https://github.com/dufu1991/youran-toolbox)
+
+<img src="https://youran-toolbox.du-fu.com/logo.png" alt="悠然工具箱 Logo" width="140" />
 
 轻量、跨平台、隐私优先的离线桌面工具箱。
 
 ```bash
 brew install --cask dufu1991/tap/youran-toolbox
 ```
+
+#### 首次运行说明（未签名版本）
+
+由于当前 macOS 安装包未签名，首次运行前需要执行以下命令移除隔离属性：
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/youran-toolbox.app"
+```
+
+执行后即可正常打开「悠然工具箱」。
 
 > 当前仅提供 Apple Silicon ( arm64 ) 的 macOS 安装包。
 

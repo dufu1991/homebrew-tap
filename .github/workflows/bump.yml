@@ -1,0 +1,35 @@
+name: Bump youran-toolbox
+
+on:
+  repository_dispatch:
+    types: [youran_toolbox_release_published]
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update cask
+        run: |
+          version="${{ github.event.client_payload.version }}"
+          sha256="${{ github.event.client_payload.sha256 }}"
+
+          sed -i "s/version \"[^\"]*\"/version \"${version}\"/" Casks/youran-toolbox.rb
+          sed -i "s/sha256 \"[^\"]*\"/sha256 \"${sha256}\"/" Casks/youran-toolbox.rb
+
+      - name: Commit and push
+        run: |
+          if git diff --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Casks/youran-toolbox.rb
+          git commit -m "youran-toolbox ${{ github.event.client_payload.version }}"
+          git push

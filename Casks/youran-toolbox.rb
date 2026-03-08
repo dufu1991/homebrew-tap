@@ -2,7 +2,7 @@ cask "youran-toolbox" do
   version "0.1.4"
   sha256 "affca980aaecc66ce23bddb25329306ace9964858827ba6b2fe6cf39db52a968"
 
-  url "https://github.com/dufu1991/youran-toolbox/releases/download/v#{version}/youran-toolbox_#{version}_aarch64.dmg",
+  url "https://github.com/dufu1991/youran-toolbox/releases/download/v#{version}/YouranToolbox_#{version}_aarch64.dmg",
       verified: "github.com/dufu1991/youran-toolbox/"
   name "youran-toolbox"
   name "悠然工具箱"
@@ -17,7 +17,7 @@ cask "youran-toolbox" do
   depends_on arch: :arm64
   auto_updates true
 
-  app "youran-toolbox.app"
+  app "YouranToolbox.app"
 
   zap trash: [
     "~/Library/Application Support/com.youran.toolbox",

@@ -25,7 +25,7 @@ brew install --cask dufu1991/tap/youran-toolbox
 由于当前 macOS 安装包未签名，首次运行前需要执行以下命令移除隔离属性：
 
 ```bash
-xattr -dr com.apple.quarantine "/Applications/youran-toolbox.app"
+xattr -dr com.apple.quarantine "/Applications/YouranToolbox.app"
 ```
 
 执行后即可正常打开「悠然工具箱」。

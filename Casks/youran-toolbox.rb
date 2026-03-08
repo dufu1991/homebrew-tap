@@ -1,6 +1,6 @@
 cask "youran-toolbox" do
-  version "0.1.3"
-  sha256 "4e85d2d7e7f929a7f0b20368da38572d247ed31bdc7fd60f52d97b4f562ad51a"
+  version "0.1.4"
+  sha256 "affca980aaecc66ce23bddb25329306ace9964858827ba6b2fe6cf39db52a968"
 
   url "https://github.com/dufu1991/youran-toolbox/releases/download/v#{version}/youran-toolbox_#{version}_aarch64.dmg",
       verified: "github.com/dufu1991/youran-toolbox/"

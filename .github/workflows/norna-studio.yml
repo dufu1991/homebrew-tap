@@ -1,0 +1,62 @@
+name: Sync Norna Studio
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/norna-studio.yml]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: norna-studio-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the public Norna release tools
+        uses: actions/checkout@v7
+        with:
+          repository: dufu1991/norna
+          ref: main
+          persist-credentials: false
+          sparse-checkout: Scripts/Release
+      - name: Resolve the latest published Studio release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          import subprocess
+          from pathlib import Path
+          release = json.loads(subprocess.check_output([
+              'gh', 'api', 'repos/dufu1991/norna/releases/latest'
+          ], text=True))
+          tag = release['tag_name']
+          if release['draft'] or release['prerelease'] or not re.fullmatch(r'studio-v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)', tag):
+              raise SystemExit('Expected the latest published stable Studio release')
+          if not any(asset['name'] == 'Norna-Studio-macOS-arm64.dmg' for asset in release['assets']):
+              raise SystemExit('The Studio release does not contain the arm64 package')
+          with Path(os.environ['GITHUB_OUTPUT']).open('a') as output:
+              output.write(f'tag={tag}\n')
+          PY
+      - name: Verify the published package and update only the Norna Cask
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STUDIO_TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          gh release download "$STUDIO_TAG" --repo dufu1991/norna \
+            --pattern Norna-Studio-macOS-arm64.dmg \
+            --pattern release.json --pattern SHA256SUMS.txt --dir build/release
+          python3 Scripts/Release/homebrew.py render --tag "$STUDIO_TAG"
+          ruby -c build/release/norna-studio.rb
+          python3 Scripts/Release/homebrew.py sync

@@ -10,6 +10,26 @@ brew tap dufu1991/tap
 
 ## 可用 Cask
 
+### [Norna Studio](https://github.com/dufu1991/norna)
+
+Norna 以纯 Swift 图表渲染库 **NornaKit** 为核心。Norna Studio 是配套的 Mac 演示与调试工具，用于展示渲染效果、临时渲染 Mermaid 源码、复现问题及导出图片、SVG 或 PDF。渲染库通过 Swift Package Manager 集成，无须安装工作台。
+
+要求 macOS 14 或更高版本，仅支持 Apple Silicon Mac。
+
+```bash
+brew install --cask dufu1991/tap/norna-studio
+```
+
+#### 首次打开说明
+
+当前版本尚无 Developer ID 签名与 Apple 公证。若 macOS 提示无法验证开发者或无法打开应用，请先确认安装包来自 [Norna 的 GitHub Releases](https://github.com/dufu1991/norna/releases)，且你信任该应用，然后在终端执行：
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/Norna Studio.app"
+```
+
+执行后重新打开 Norna Studio。安装位置不同时，请替换为实际路径；该命令只移除下载隔离属性，不能修复实际损坏的文件。详细说明见 [Norna 项目文档](https://github.com/dufu1991/norna/blob/main/README.zh-CN.md)。
+
 ### [悠然工具箱](https://github.com/dufu1991/youran-toolbox)
 
 <img src="https://youran-toolbox.du-fu.com/logo.png" alt="悠然工具箱 Logo" width="140" />
@@ -37,15 +57,20 @@ xattr -dr com.apple.quarantine "/Applications/YouranToolbox.app"
 ```bash
 brew update
 brew upgrade --cask dufu1991/tap/youran-toolbox
+brew upgrade --cask dufu1991/tap/norna-studio
 ```
 
 ## 卸载
 
 ```bash
 brew uninstall --cask dufu1991/tap/youran-toolbox
+brew uninstall --cask dufu1991/tap/norna-studio
 brew untap dufu1991/tap
 ```
 
 ## 自动更新 Cask
 
-本仓库已包含 `.github/workflows/bump.yml`，可通过 `repository_dispatch` 自动更新版本号与 `sha256`。
+- 悠然工具箱使用本仓库的 `.github/workflows/bump.yml`，通过 `repository_dispatch` 更新版本号与 `sha256`。
+- Norna Studio 由 [Norna 仓库的 Homebrew 工作流](https://github.com/dufu1991/norna/blob/main/.github/workflows/homebrew.yml) 在工作台 Release 成功后，更新 `Casks/norna-studio.rb`。版本与安装包均来自工作台的 GitHub Release，独立于 NornaKit 的库版本。
+- 本仓库的 `.github/workflows/norna-studio.yml` 每小时检查 Norna 最新的工作台 Release，使用本仓库自己的 `GITHUB_TOKEN` 同步 Cask，无须个人令牌。也可以在 Actions 中手动运行“Sync Norna Studio”。
+- 如需在 Norna 发布完成后立即跨仓库同步，可在 Norna 仓库选配对本 tap 具有 Contents 读写权限的 `HOMEBREW_TAP_TOKEN`。未配置时，仍由本仓库的同步工作流发布。配置与重试说明见 [Norna 发布指南](https://github.com/dufu1991/norna/blob/main/Docs/RELEASING.md)。

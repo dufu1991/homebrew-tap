@@ -2,10 +2,10 @@ cask "norna-studio" do
   version "0.1.1"
   sha256 "7b832bf3ae60fed232e44de54c95a6edf4507bd5e8aa3034466949e7ce478107"
 
-  url "https://github.com/dufu1991/norna/releases/download/studio-v#{version}/Norna-Studio-macOS-arm64.dmg"
+  url "https://github.com/dufu1991/nornakit/releases/download/studio-v#{version}/Norna-Studio-macOS-arm64.dmg"
   name "Norna Studio"
   desc "Companion demo, debugging, and export tool for the NornaKit diagram library"
-  homepage "https://github.com/dufu1991/norna"
+  homepage "https://nornakit.com"
 
   livecheck do
     url :url

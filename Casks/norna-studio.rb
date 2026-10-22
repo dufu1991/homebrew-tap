@@ -1,16 +1,14 @@
 cask "norna-studio" do
-  version "0.1.1"
-  sha256 "7b832bf3ae60fed232e44de54c95a6edf4507bd5e8aa3034466949e7ce478107"
+  version "0.1.1,7"
+  sha256 "1738f08a418a2fbcf079a2b27d71db18e9256d6eb18429974d1834f99700f8cf"
 
-  url "https://github.com/dufu1991/nornakit/releases/download/studio-v#{version}/Norna-Studio-macOS-arm64.dmg"
+  url "https://github.com/dufu1991/nornakit/releases/download/v0.1.0/Norna-Studio-macOS-arm64.dmg"
   name "Norna Studio"
   desc "Companion demo, debugging, and export tool for the NornaKit diagram library"
   homepage "https://nornakit.com"
 
   livecheck do
-    url :url
-    regex(/^studio-v(\d+(?:\.\d+)+)$/i)
-    strategy :github_latest
+    skip "Updated from the verified companion manifest by GitHub Actions."
   end
 
   depends_on arch: :arm64

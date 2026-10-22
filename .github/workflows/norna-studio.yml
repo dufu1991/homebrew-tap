@@ -27,7 +27,7 @@ jobs:
           ref: main
           persist-credentials: false
           sparse-checkout: Scripts/Release
-      - name: Resolve the latest published Studio release
+      - name: Resolve the latest stable release with a Studio companion
         id: release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -42,21 +42,21 @@ jobs:
               'gh', 'api', 'repos/dufu1991/nornakit/releases/latest'
           ], text=True))
           tag = release['tag_name']
-          if release['draft'] or release['prerelease'] or not re.fullmatch(r'studio-v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)', tag):
-              raise SystemExit('Expected the latest published stable Studio release')
+          if release['draft'] or release['prerelease'] or not re.fullmatch(r'(?:studio-)?v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)', tag):
+              raise SystemExit('Expected a stable Kit or standalone Studio release')
           if not any(asset['name'] == 'Norna-Studio-macOS-arm64.dmg' for asset in release['assets']):
-              raise SystemExit('The Studio release does not contain the arm64 package')
+              raise SystemExit('The latest release does not contain a Studio companion')
           with Path(os.environ['GITHUB_OUTPUT']).open('a') as output:
               output.write(f'tag={tag}\n')
           PY
       - name: Verify the published package and update only the NornaKit Cask
         env:
           GH_TOKEN: ${{ github.token }}
-          STUDIO_TAG: ${{ steps.release.outputs.tag }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
         run: |
-          gh release download "$STUDIO_TAG" --repo dufu1991/nornakit \
+          gh release download "$RELEASE_TAG" --repo dufu1991/nornakit \
             --pattern Norna-Studio-macOS-arm64.dmg \
             --pattern release.json --pattern SHA256SUMS.txt --dir build/release
-          python3 Scripts/Release/homebrew.py render --tag "$STUDIO_TAG"
+          python3 Scripts/Release/homebrew.py render --tag "$RELEASE_TAG"
           ruby -c build/release/norna-studio.rb
           python3 Scripts/Release/homebrew.py sync

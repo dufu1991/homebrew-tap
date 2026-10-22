@@ -54,9 +54,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ steps.release.outputs.tag }}
         run: |
-          gh release download "$RELEASE_TAG" --repo dufu1991/nornakit \
-            --pattern Norna-Studio-macOS-arm64.dmg \
-            --pattern release.json --pattern SHA256SUMS.txt --dir build/release
-          python3 Scripts/Release/homebrew.py render --tag "$RELEASE_TAG"
+          python3 Scripts/Release/homebrew.py download --tag "$RELEASE_TAG"
           ruby -c build/release/norna-studio.rb
           python3 Scripts/Release/homebrew.py sync

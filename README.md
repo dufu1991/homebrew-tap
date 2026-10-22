@@ -71,6 +71,6 @@ brew untap dufu1991/tap
 ## 自动更新 Cask
 
 - 悠然工具箱使用本仓库的 `.github/workflows/bump.yml`，通过 `repository_dispatch` 更新版本号与 `sha256`。
-- Norna Studio 由 [NornaKit 仓库的 Homebrew 工作流](https://github.com/dufu1991/nornakit/blob/main/.github/workflows/homebrew.yml) 在发布成功后更新 `Casks/norna-studio.rb`。Kit 的 `vX.Y.Z` 发布通常附带跟随更新的工作台；应用专属更新仍可使用 `studio-vX.Y.Z`。Cask 从发布说明中隐藏的元数据读取独立的 Studio 版本与构建号，例如 `0.1.1,7`，下载地址使用实际承载附件的版本标签。发布页只保留 DMG 附件，工作流会核对元数据、GitHub 附件与下载文件的 SHA-256 校验值。
+- Norna Studio 由 [NornaKit 仓库的 Homebrew 工作流](https://github.com/dufu1991/nornakit/blob/main/.github/workflows/homebrew.yml) 在发布成功后更新 `Casks/norna-studio.rb`。Kit 的 `vX.Y.Z` 发布通常附带跟随更新的工作台；应用专属更新仍可使用 `studio-vX.Y.Z`。Cask 从发布说明中隐藏的元数据读取独立的 Studio 版本与构建号，例如 `0.1.1,8`，下载地址使用实际承载附件的版本标签。发布页只保留 DMG 附件，工作流会核对元数据、GitHub 附件与下载文件的 SHA-256 校验值。
 - 本仓库的 `.github/workflows/norna-studio.yml` 每小时检查最新稳定 Release 中的工作台附件，兼容 Kit 主发布与独立 Studio 发布，使用本仓库自己的 `GITHUB_TOKEN` 同步 Cask，无须个人令牌。也可以在 Actions 中手动运行“Sync Norna Studio”。
 - 如需在 NornaKit 发布完成后立即跨仓库同步，可在 NornaKit 仓库选配对本 tap 具有 Contents 读写权限的 `HOMEBREW_TAP_TOKEN`。未配置时，仍由本仓库的同步工作流发布。配置与重试说明见 [NornaKit 发布指南](https://github.com/dufu1991/nornakit/blob/main/Docs/RELEASING.md)。

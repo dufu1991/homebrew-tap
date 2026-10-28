@@ -12,7 +12,7 @@ brew tap dufu1991/tap
 
 ### [Norna Studio](https://nornakit.com)
 
-NornaKit 以纯 Swift 图表渲染库 **NornaKit** 为核心。Norna Studio 是配套的 Mac 演示与调试工具，用于展示渲染效果、临时渲染 Mermaid 源码、复现问题及导出图片、SVG 或 PDF。渲染库通过 Swift Package Manager 集成，无须安装工作台。
+NornaKit 以原生图表渲染库 **NornaKit** 为核心。Apple 端使用 Swift 与 CoreGraphics，Windows 端使用 C# 与 Win2D。Norna Studio 是配套的 Mac 演示与调试工具，用于展示渲染效果、临时渲染 Mermaid 源码、复现问题及导出图片、SVG 或 PDF。Apple 渲染库通过 Swift Package Manager 集成，无须安装工作台。此 Cask 仅分发 macOS 工作台；Windows 的独立 Kit 与分发说明见 [Windows 指南](https://github.com/dufu1991/nornakit/blob/main/Docs/WINDOWS.md)。
 
 要求 macOS 14 或更高版本，仅支持 Apple Silicon Mac。
 

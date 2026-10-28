@@ -1,0 +1,50 @@
+name: Sync FoldGit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/foldgit.yml
+      - Scripts/sync_foldgit.py
+      - Tests/test_sync_foldgit.py
+  repository_dispatch:
+    types: [foldgit_release_published]
+  workflow_dispatch:
+  schedule:
+    - cron: '37 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: foldgit-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Test release validation
+        run: python3 -m unittest discover -s Tests -p 'test_sync_foldgit.py'
+      - name: Download and verify the latest stable macOS package
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 Scripts/sync_foldgit.py
+      - name: Validate the Cask syntax
+        run: ruby -c Casks/foldgit.rb
+      - name: Commit the Cask update
+        run: |
+          if [ -z "$(git status --porcelain -- Casks/foldgit.rb)" ]; then
+            echo "FoldGit is already up to date."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Casks/foldgit.rb
+          git commit -m "Update FoldGit cask"
+          git pull --rebase origin main
+          git push origin HEAD:main

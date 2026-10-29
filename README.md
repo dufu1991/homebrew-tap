@@ -65,9 +65,9 @@ brew tap dufu1991/tap
 
 ## App details
 
-<a id="foldgit"></a>
+### FoldGit
 
-### <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit.png" width="32" alt=""></picture> FoldGit
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit.png" width="80" alt="FoldGit app icon"></picture>
 
 **Requirements: macOS 26 or later, an Apple Silicon Mac, and Git.**
 
@@ -77,9 +77,9 @@ If Git is not installed, run `xcode-select --install` first.
 
 [User guide](https://foldgit.com/manual) · [Source](https://github.com/dufu1991/foldgit) · [Releases and downloads](https://github.com/dufu1991/foldgit/releases)
 
-<a id="norna-studio"></a>
+### Norna Studio
 
-### <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-light.png" width="32" alt=""></picture> Norna Studio
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-light.png" width="80" alt="Norna Studio app icon"></picture>
 
 **Requirements: macOS 14 or later and an Apple Silicon Mac.**
 
@@ -92,7 +92,9 @@ This Cask installs the Norna Studio app. To integrate the NornaKit rendering lib
 <a id="youran-toolbox"></a>
 <a id="悠然工具箱"></a>
 
-### <img src="https://youran-toolbox.du-fu.com/logo.png" width="32" alt=""> YouranToolbox
+### YouranToolbox
+
+<img src="https://youran-toolbox.du-fu.com/logo.png" width="80" alt="YouranToolbox app icon">
 
 **Requirements: an Apple Silicon Mac.**
 

@@ -65,9 +65,9 @@ brew tap dufu1991/tap
 
 ## 应用详情
 
-<a id="foldgit"></a>
+### FoldGit
 
-### <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit.png" width="32" alt=""></picture> FoldGit
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit.png" width="80" alt="FoldGit 应用图标"></picture>
 
 **系统要求：macOS 26 或更高版本、Apple Silicon Mac，并已安装 Git。**
 
@@ -77,9 +77,9 @@ brew tap dufu1991/tap
 
 [使用手册](https://foldgit.com/manual) · [源码](https://github.com/dufu1991/foldgit) · [版本与下载](https://github.com/dufu1991/foldgit/releases)
 
-<a id="norna-studio"></a>
+### Norna Studio
 
-### <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-light.png" width="32" alt=""></picture> Norna Studio
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-light.png" width="80" alt="Norna Studio 应用图标"></picture>
 
 **系统要求：macOS 14 或更高版本、Apple Silicon Mac。**
 
@@ -89,9 +89,9 @@ NornaKit 的配套图表工作台，提供 Mermaid 源码编辑、实时预览�
 
 [使用指南](https://github.com/dufu1991/nornakit/blob/main/Docs/GUIDE.md) · [源码与渲染库](https://github.com/dufu1991/nornakit) · [版本与下载](https://github.com/dufu1991/nornakit/releases)
 
-<a id="悠然工具箱"></a>
+### 悠然工具箱
 
-### <img src="https://youran-toolbox.du-fu.com/logo.png" width="32" alt=""> 悠然工具箱
+<img src="https://youran-toolbox.du-fu.com/logo.png" width="80" alt="悠然工具箱 应用图标">
 
 **系统要求：Apple Silicon Mac。**
 

@@ -4,11 +4,46 @@
 
 ## 应用总览
 
-| 图标 | 应用 | 包名 | 官网 | 简介 |
-| :---: | --- | --- | --- | --- |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit.png" width="48" height="48" alt="FoldGit 应用图标"></picture> | [FoldGit](#foldgit) | [`foldgit`](Casks/foldgit.rb) | [foldgit.com](https://foldgit.com) | 原生、轻量的 Git 客户端，支持仓库分组、工作树管理、目录树审查和差异暂存。 |
-| <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-light.png" width="48" height="48" alt="Norna Studio 应用图标"></picture> | [Norna Studio](#norna-studio) | [`norna-studio`](Casks/norna-studio.rb) | [nornakit.com](https://nornakit.com) | NornaKit 的原生图表工作台，用于演示、调试 Mermaid 渲染，并导出图片、SVG 或 PDF。 |
-| <img src="https://youran-toolbox.du-fu.com/logo.png" width="48" height="48" alt="悠然工具箱应用图标"> | [悠然工具箱](#悠然工具箱)<br>YouranToolbox | [`youran-toolbox`](Casks/youran-toolbox.rb) | [youran-toolbox.du-fu.com](https://youran-toolbox.du-fu.com) | 注重隐私的本地桌面工具箱，覆盖文件、文本、图片、数据处理与开发场景。 |
+<table>
+  <thead>
+    <tr>
+      <th width="80" align="center">图标</th>
+      <th width="140" align="left">名称</th>
+      <th width="190" align="left">官网</th>
+      <th align="left">简介</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="80" align="center">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit-dark.png">
+          <img src="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit.png" width="48" alt="FoldGit 应用图标">
+        </picture>
+      </td>
+      <td><a href="#foldgit"><strong>FoldGit</strong></a></td>
+      <td><a href="https://foldgit.com">foldgit.com</a></td>
+      <td>原生、轻量的 Git 客户端，支持仓库分组、工作树管理、目录树审查和差异暂存。</td>
+    </tr>
+    <tr>
+      <td width="80" align="center">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-dark.png">
+          <img src="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-light.png" width="48" alt="Norna Studio 应用图标">
+        </picture>
+      </td>
+      <td><a href="#norna-studio"><strong>Norna Studio</strong></a></td>
+      <td><a href="https://nornakit.com">nornakit.com</a></td>
+      <td>NornaKit 的原生图表工作台，用于演示、调试 Mermaid 渲染，并导出图片、SVG 或 PDF。</td>
+    </tr>
+    <tr>
+      <td width="80" align="center"><img src="https://youran-toolbox.du-fu.com/logo.png" width="48" alt="悠然工具箱应用图标"></td>
+      <td><a href="#悠然工具箱"><strong>悠然工具箱</strong></a></td>
+      <td><a href="https://youran-toolbox.du-fu.com">youran-toolbox.du-fu.com</a></td>
+      <td>注重隐私的本地桌面工具箱，覆盖文件、文本、图片、数据处理与开发场景。</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 安装
 
@@ -72,7 +107,7 @@ YouranToolbox 将常见办公与开发工具集中在一个桌面应用中，覆
 
 ## 更新与卸载
 
-先刷新 Homebrew，再更新已安装的应用。下例中的 `foldgit` 可替换为表格中的其他包名。
+先刷新 Homebrew，再更新已安装的应用。下例中的 `foldgit` 可替换为 `norna-studio` 或 `youran-toolbox`。
 
 ```sh
 brew update

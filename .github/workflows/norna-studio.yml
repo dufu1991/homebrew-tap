@@ -6,7 +6,7 @@ on:
     paths: [.github/workflows/norna-studio.yml]
   workflow_dispatch:
   schedule:
-    - cron: '17 * * * *'
+    - cron: '17 */6 * * *'
 
 permissions:
   contents: write

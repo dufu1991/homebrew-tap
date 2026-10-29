@@ -1,107 +1,111 @@
-# Homebrew Tap
+# dufu 的 Homebrew Tap
 
-用于发布 [@dufu1991](https://github.com/dufu1991) 的 Homebrew 软件仓库。
+通过 Homebrew 安装和更新 [dufu](https://github.com/dufu1991) 维护的桌面应用。当前提供以下 3 个 Cask，均用于安装 Apple Silicon Mac 版本。
 
-## 安装 Tap
+## 应用总览
 
-```bash
-brew tap dufu1991/tap
-```
+| 图标 | 应用 | 包名 | 官网 | 简介 |
+| :---: | --- | --- | --- | --- |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/foldgit/main/Shared/Resources/Branding/Images/FoldGit.png" width="48" height="48" alt="FoldGit 应用图标"></picture> | [FoldGit](#foldgit) | [`foldgit`](Casks/foldgit.rb) | [foldgit.com](https://foldgit.com) | 原生、轻量的 Git 客户端，支持仓库分组、工作树管理、目录树审查和差异暂存。 |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-dark.png"><img src="https://raw.githubusercontent.com/dufu1991/nornakit/main/website/dist/assets/brand/app-icon-light.png" width="48" height="48" alt="Norna Studio 应用图标"></picture> | [Norna Studio](#norna-studio) | [`norna-studio`](Casks/norna-studio.rb) | [nornakit.com](https://nornakit.com) | NornaKit 的原生图表工作台，用于演示、调试 Mermaid 渲染，并导出图片、SVG 或 PDF。 |
+| <img src="https://youran-toolbox.du-fu.com/logo.png" width="48" height="48" alt="悠然工具箱应用图标"> | [悠然工具箱](#悠然工具箱)<br>YouranToolbox | [`youran-toolbox`](Casks/youran-toolbox.rb) | [youran-toolbox.du-fu.com](https://youran-toolbox.du-fu.com) | 注重隐私的本地桌面工具箱，覆盖文件、文本、图片、数据处理与开发场景。 |
 
-## 可用 Cask
+## 安装
 
-### [FoldGit](https://github.com/dufu1991/foldgit)
+先安装 [Homebrew](https://brew.sh/)，再按需选择以下命令。使用完整包名安装时，Homebrew 会自动添加本 tap。
 
-原生、轻量的 macOS Git 客户端，支持仓库分组、工作树管理和代码差异查看。
-
-要求 macOS 26 或更高版本，仅支持 Apple Silicon Mac，并已安装 Git。没有 Git 的话，运行 `xcode-select --install`。
-
-```bash
+```sh
 brew install --cask dufu1991/tap/foldgit
-```
-
-#### 首次打开说明
-
-未使用 Developer ID 签名并完成 Apple 公证的版本可能被 macOS 拦截。确认安装包来自 [FoldGit 的 GitHub Releases](https://github.com/dufu1991/foldgit/releases)，且信任该应用后，可执行：
-
-```bash
-xattr -dr com.apple.quarantine /Applications/FoldGit.app
-```
-
-执行后重新打开 FoldGit。安装位置不同时，请替换为实际路径。详细说明见 [FoldGit 安装指南](https://github.com/dufu1991/foldgit/blob/main/README.zh-CN.md#安装)。
-
-### [Norna Studio](https://nornakit.com)
-
-NornaKit 以原生图表渲染库 **NornaKit** 为核心。Apple 端使用 Swift 与 CoreGraphics，Windows 端使用 C# 与 Win2D。Norna Studio 是配套的 Mac 演示与调试工具，用于展示渲染效果、临时渲染 Mermaid 源码、复现问题及导出图片、SVG 或 PDF。Apple 渲染库通过 Swift Package Manager 集成，无须安装工作台。此 Cask 仅分发 macOS 工作台；Windows 的独立 Kit 与分发说明见 [Windows 指南](https://github.com/dufu1991/nornakit/blob/main/Docs/WINDOWS.md)。
-
-要求 macOS 14 或更高版本，仅支持 Apple Silicon Mac。
-
-```bash
 brew install --cask dufu1991/tap/norna-studio
-```
-
-#### 首次打开说明
-
-当前版本尚无 Developer ID 签名与 Apple 公证。若 macOS 提示无法验证开发者或无法打开应用，请先确认安装包来自 [NornaKit 的 GitHub Releases](https://github.com/dufu1991/nornakit/releases)，且你信任该应用，然后在终端执行：
-
-```bash
-xattr -dr com.apple.quarantine "/Applications/Norna Studio.app"
-```
-
-执行后重新打开 Norna Studio。安装位置不同时，请替换为实际路径；该命令只移除下载隔离属性，不能修复实际损坏的文件。详细说明见 [NornaKit 项目文档](https://github.com/dufu1991/nornakit/blob/main/README.zh-CN.md)。
-
-### [悠然工具箱](https://github.com/dufu1991/youran-toolbox)
-
-<img src="https://youran-toolbox.du-fu.com/logo.png" alt="悠然工具箱 Logo" width="140" />
-
-轻量、跨平台、隐私优先的离线桌面工具箱。
-
-```bash
 brew install --cask dufu1991/tap/youran-toolbox
 ```
 
-#### 首次运行说明（未签名版本）
+也可以单独添加 tap，稍后再安装应用：
 
-由于当前 macOS 安装包未签名，首次运行前需要执行以下命令移除隔离属性：
-
-```bash
-xattr -dr com.apple.quarantine "/Applications/YouranToolbox.app"
+```sh
+brew tap dufu1991/tap
 ```
 
-执行后即可正常打开「悠然工具箱」。
+## 应用详情
 
-> 当前仅提供 Apple Silicon ( arm64 ) 的 macOS 安装包。
+### FoldGit
 
-## 更新
+**系统要求：macOS 26 或更高版本、Apple Silicon Mac，并已安装 Git。**
 
-```bash
+将多个仓库按目录或分组收进同一个窗口，关联工作树显示在所属仓库下方。支持提交关系图、目录树、单栏与并排差异，以及按目录、文件或代码块暂存，适合日常开发中的改动审查与提交。
+
+未安装 Git 时，可先运行 `xcode-select --install`。
+
+[使用手册](https://foldgit.com/manual) · [源码](https://github.com/dufu1991/foldgit) · [版本与下载](https://github.com/dufu1991/foldgit/releases)
+
+### Norna Studio
+
+**系统要求：macOS 14 或更高版本、Apple Silicon Mac。**
+
+NornaKit 的配套图表工作台，提供 Mermaid 源码编辑、实时预览、画布平移缩放与中英文界面。用于查看原生渲染效果、复现图表问题，以及将图表导出为图片、SVG 或 PDF。
+
+本 Cask 安装 Norna Studio 应用。需要在项目中集成 NornaKit 渲染库时，请按项目文档通过 Swift Package Manager 接入；使用渲染库无须安装工作台。
+
+[使用指南](https://github.com/dufu1991/nornakit/blob/main/Docs/GUIDE.md) · [源码与渲染库](https://github.com/dufu1991/nornakit) · [版本与下载](https://github.com/dufu1991/nornakit/releases)
+
+### 悠然工具箱
+
+**系统要求：Apple Silicon Mac。**
+
+YouranToolbox 将常见办公与开发工具集中在一个桌面应用中，覆盖批量重命名、PDF 处理、文本对比、图片转换、二维码、JSON 格式化与编码解码等场景。工具输入在本机处理，不会上传；支持工具搜索、亮暗色外观和多种界面语言。
+
+本 tap 分发 macOS 版。Windows 安装包与其他平台的支持情况见项目文档。
+
+[功能与使用说明](https://youran-toolbox.du-fu.com) · [中文文档](https://github.com/dufu1991/youran-toolbox/blob/main/readme/README.zh-CN.md) · [源码](https://github.com/dufu1991/youran-toolbox) · [版本与下载](https://github.com/dufu1991/youran-toolbox/releases)
+
+## 首次打开
+
+各应用的签名与 Apple 公证状态以对应版本的发布说明为准。若 macOS 提示「已损坏」或「无法验证开发者」，先确认安装包来自上方的官方项目及发布页，再按需对相应应用执行一次以下命令。
+
+| 应用 | 默认安装位置对应的命令 |
+| --- | --- |
+| FoldGit | `xattr -dr com.apple.quarantine /Applications/FoldGit.app` |
+| Norna Studio | `xattr -dr com.apple.quarantine "/Applications/Norna Studio.app"` |
+| 悠然工具箱 | `xattr -dr com.apple.quarantine /Applications/YouranToolbox.app` |
+
+执行后重新打开应用。安装位置不同时，请替换为实际路径；更多安装说明见各项目的使用文档。
+
+## 更新与卸载
+
+先刷新 Homebrew，再更新已安装的应用。下例中的 `foldgit` 可替换为表格中的其他包名。
+
+```sh
 brew update
 brew upgrade --cask dufu1991/tap/foldgit
-brew upgrade --cask dufu1991/tap/youran-toolbox
-brew upgrade --cask dufu1991/tap/norna-studio
 ```
 
-## 卸载
+查看包信息与卸载应用：
 
-```bash
-brew uninstall --cask dufu1991/tap/youran-toolbox
-brew uninstall --cask dufu1991/tap/norna-studio
+```sh
+brew info --cask dufu1991/tap/foldgit
 brew uninstall --cask dufu1991/tap/foldgit
+```
+
+不再使用本 tap 时，可移除仓库：
+
+```sh
 brew untap dufu1991/tap
 ```
 
-## 自动更新 Cask
+## 维护与版本同步
 
-- 悠然工具箱使用本仓库的 `.github/workflows/bump.yml`，通过 `repository_dispatch` 更新版本号与 `sha256`。
-- Norna Studio 由 [NornaKit 仓库的 Homebrew 工作流](https://github.com/dufu1991/nornakit/blob/main/.github/workflows/homebrew.yml) 在发布成功后更新 `Casks/norna-studio.rb`。Kit 的 `vX.Y.Z` 发布通常附带跟随更新的工作台；应用专属更新仍可使用 `studio-vX.Y.Z`。Cask 从发布说明中隐藏的元数据读取独立的 Studio 版本与构建号，例如 `0.1.1,9`，下载地址使用实际承载附件的版本标签。发布页只保留 DMG 附件，工作流会核对元数据、GitHub 附件与下载文件的 SHA-256 校验值。
-- 本仓库的 `.github/workflows/norna-studio.yml` 每 6 小时检查最新稳定 Release 中的工作台附件，兼容 Kit 主发布与独立 Studio 发布，使用本仓库自己的 `GITHUB_TOKEN` 同步 Cask，无须个人令牌。也可以在 Actions 中手动运行“Sync Norna Studio”。
-- 如需在 NornaKit 发布完成后立即跨仓库同步，可在 NornaKit 仓库选配对本 tap 具有 Contents 读写权限的 `HOMEBREW_TAP_TOKEN`。未配置时，仍由本仓库的同步工作流发布。配置与重试说明见 [NornaKit 发布指南](https://github.com/dufu1991/nornakit/blob/main/Docs/RELEASING.md)。
+| 包 | 自动同步方式 | 工作流 |
+| --- | --- | --- |
+| FoldGit | 每 6 小时检查最新稳定 Release，下载 macOS DMG，校验文件大小和 GitHub 提供的 SHA-256 摘要后更新 Cask。 | [Sync FoldGit](https://github.com/dufu1991/homebrew-tap/actions/workflows/foldgit.yml) |
+| Norna Studio | 每 6 小时检查最新稳定 Release 中的工作台附件，校验发布元数据、附件摘要与下载文件后更新 Cask，兼容 Kit 主发布和独立 Studio 发布。 | [Sync Norna Studio](https://github.com/dufu1991/homebrew-tap/actions/workflows/norna-studio.yml) |
+| 悠然工具箱 | 通过 `youran_toolbox_release_published` 发布事件，将事件中的版本号与 SHA-256 写入 Cask。 | [Bump youran-toolbox](https://github.com/dufu1991/homebrew-tap/actions/workflows/bump.yml)，由发布事件触发。 |
 
-- FoldGit 使用本仓库的 `.github/workflows/foldgit.yml`，每 6 小时检查最新稳定 Release，使用本仓库自己的 `GITHUB_TOKEN` 同步 Cask，无须在 FoldGit 配置个人令牌或跨仓库 Secret。`Scripts/sync_foldgit.py` 下载 macOS DMG，验证文件大小与 GitHub 提供的 SHA-256 摘要后，再更新 `Casks/foldgit.rb`。同一版本重新发布附件时，也会更新校验值；版本和校验值均未变化时不会创建提交。
-- FoldGit 发布 Release 后会由上述定时任务自动同步，GitHub 调度繁忙时可能延迟。需要立即同步或重试时，可在本仓库的 [Actions → Sync FoldGit](https://github.com/dufu1991/homebrew-tap/actions/workflows/foldgit.yml) 中点击 **Run workflow**，无需重新打包应用或增加版本号。应用发布与 Cask 同步各自记录运行结果。
+FoldGit 和 Norna Studio 的定时任务使用本仓库自己的 `GITHUB_TOKEN`，无须配置个人令牌。GitHub 调度繁忙时可能延迟；需要立即同步或重试时，在对应任务页面点击 **Run workflow**。悠然工具箱使用发版事件同步，没有定时轮询。
 
-验证 FoldGit 同步脚本：
+FoldGit 同一版本重新发布安装包时会刷新校验值，版本和校验值均未变化时不会创建提交。Norna Studio 的应用版本与 NornaKit 库版本分别维护，Cask 根据发布元数据中的 Studio 版本与构建号更新，详细规则见 [NornaKit 发布指南](https://github.com/dufu1991/nornakit/blob/main/Docs/RELEASING.md)。
 
-```bash
+Cask 定义位于 [`Casks/`](Casks)，同步任务位于 [`.github/workflows/`](.github/workflows)。验证 FoldGit 的发布校验脚本：
+
+```sh
 python3 -m unittest discover -s Tests -p 'test_sync_foldgit.py'
 ```

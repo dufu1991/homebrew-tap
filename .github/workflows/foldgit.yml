@@ -11,7 +11,7 @@ on:
     types: [foldgit_release_published]
   workflow_dispatch:
   schedule:
-    - cron: '7,22,37,52 * * * *'
+    - cron: '37 * * * *'
 
 permissions:
   contents: write

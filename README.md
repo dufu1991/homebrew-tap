@@ -97,7 +97,7 @@ brew untap dufu1991/tap
 - 本仓库的 `.github/workflows/norna-studio.yml` 每小时检查最新稳定 Release 中的工作台附件，兼容 Kit 主发布与独立 Studio 发布，使用本仓库自己的 `GITHUB_TOKEN` 同步 Cask，无须个人令牌。也可以在 Actions 中手动运行“Sync Norna Studio”。
 - 如需在 NornaKit 发布完成后立即跨仓库同步，可在 NornaKit 仓库选配对本 tap 具有 Contents 读写权限的 `HOMEBREW_TAP_TOKEN`。未配置时，仍由本仓库的同步工作流发布。配置与重试说明见 [NornaKit 发布指南](https://github.com/dufu1991/nornakit/blob/main/Docs/RELEASING.md)。
 
-- FoldGit 使用本仓库的 `.github/workflows/foldgit.yml`，每 15 分钟检查最新稳定 Release，使用本仓库自己的 `GITHUB_TOKEN` 同步 Cask，无须在 FoldGit 配置个人令牌或跨仓库 Secret。`Scripts/sync_foldgit.py` 下载 macOS DMG，验证文件大小与 GitHub 提供的 SHA-256 摘要后，再更新 `Casks/foldgit.rb`。同一版本重新发布附件时，也会更新校验值；版本和校验值均未变化时不会创建提交。
+- FoldGit 使用本仓库的 `.github/workflows/foldgit.yml`，每小时检查最新稳定 Release，使用本仓库自己的 `GITHUB_TOKEN` 同步 Cask，无须在 FoldGit 配置个人令牌或跨仓库 Secret。`Scripts/sync_foldgit.py` 下载 macOS DMG，验证文件大小与 GitHub 提供的 SHA-256 摘要后，再更新 `Casks/foldgit.rb`。同一版本重新发布附件时，也会更新校验值；版本和校验值均未变化时不会创建提交。
 - FoldGit 发布 Release 后会由上述定时任务自动同步，GitHub 调度繁忙时可能延迟。需要立即同步或重试时，可在本仓库的 [Actions → Sync FoldGit](https://github.com/dufu1991/homebrew-tap/actions/workflows/foldgit.yml) 中点击 **Run workflow**，无需重新打包应用或增加版本号。应用发布与 Cask 同步各自记录运行结果。
 
 验证 FoldGit 同步脚本：

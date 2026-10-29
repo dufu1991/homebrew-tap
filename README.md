@@ -11,7 +11,7 @@ Install and update desktop apps maintained by [dufu](https://github.com/dufu1991
     <tr>
       <th width="80" align="center">Icon</th>
       <th width="140" align="left">Name</th>
-      <th width="190" align="left">Website</th>
+      <th width="160" align="left">Links</th>
       <th align="left">Description</th>
     </tr>
   </thead>
@@ -24,7 +24,7 @@ Install and update desktop apps maintained by [dufu](https://github.com/dufu1991
         </picture>
       </td>
       <td><a href="#foldgit"><strong>FoldGit</strong></a></td>
-      <td><a href="https://foldgit.com">foldgit.com</a></td>
+      <td><a href="https://foldgit.com">Website</a> · <a href="https://github.com/dufu1991/foldgit">Source</a></td>
       <td>A native, lightweight Git client with repository groups, worktree management, directory trees and diff staging.</td>
     </tr>
     <tr>
@@ -35,13 +35,13 @@ Install and update desktop apps maintained by [dufu](https://github.com/dufu1991
         </picture>
       </td>
       <td><a href="#norna-studio"><strong>Norna Studio</strong></a></td>
-      <td><a href="https://nornakit.com">nornakit.com</a></td>
+      <td><a href="https://nornakit.com">Website</a> · <a href="https://github.com/dufu1991/nornakit">Source</a></td>
       <td>NornaKit's native diagram workbench for demonstrating and debugging Mermaid rendering, with image, SVG and PDF export.</td>
     </tr>
     <tr>
       <td width="80" align="center"><img src="https://youran-toolbox.du-fu.com/logo.png" width="48" alt="YouranToolbox app icon"></td>
       <td><a href="#youran-toolbox"><strong>YouranToolbox</strong></a></td>
-      <td><a href="https://youran-toolbox.du-fu.com">youran-toolbox.du-fu.com</a></td>
+      <td><a href="https://youran-toolbox.du-fu.com">Website</a> · <a href="https://github.com/dufu1991/youran-toolbox">Source</a></td>
       <td>A privacy-first desktop toolbox for local file, text, image, data and developer tasks.</td>
     </tr>
   </tbody>

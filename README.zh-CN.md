@@ -11,7 +11,7 @@
     <tr>
       <th width="80" align="center">图标</th>
       <th width="140" align="left">名称</th>
-      <th width="190" align="left">官网</th>
+      <th width="160" align="left">链接</th>
       <th align="left">简介</th>
     </tr>
   </thead>
@@ -24,7 +24,7 @@
         </picture>
       </td>
       <td><a href="#foldgit"><strong>FoldGit</strong></a></td>
-      <td><a href="https://foldgit.com">foldgit.com</a></td>
+      <td><a href="https://foldgit.com">官网</a> · <a href="https://github.com/dufu1991/foldgit">源码</a></td>
       <td>原生、轻量的 Git 客户端，支持仓库分组、工作树管理、目录树审查和差异暂存。</td>
     </tr>
     <tr>
@@ -35,13 +35,13 @@
         </picture>
       </td>
       <td><a href="#norna-studio"><strong>Norna Studio</strong></a></td>
-      <td><a href="https://nornakit.com">nornakit.com</a></td>
+      <td><a href="https://nornakit.com">官网</a> · <a href="https://github.com/dufu1991/nornakit">源码</a></td>
       <td>NornaKit 的原生图表工作台，用于演示、调试 Mermaid 渲染，并导出图片、SVG 或 PDF。</td>
     </tr>
     <tr>
       <td width="80" align="center"><img src="https://youran-toolbox.du-fu.com/logo.png" width="48" alt="悠然工具箱应用图标"></td>
       <td><a href="#悠然工具箱"><strong>悠然工具箱</strong></a></td>
-      <td><a href="https://youran-toolbox.du-fu.com">youran-toolbox.du-fu.com</a></td>
+      <td><a href="https://youran-toolbox.du-fu.com">官网</a> · <a href="https://github.com/dufu1991/youran-toolbox">源码</a></td>
       <td>注重隐私的本地桌面工具箱，覆盖文件、文本、图片、数据处理与开发场景。</td>
     </tr>
   </tbody>

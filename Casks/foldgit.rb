@@ -1,6 +1,6 @@
 cask "foldgit" do
-  version "0.5.2"
-  sha256 "b91b169148278938c9d3d13d6762c6d5ea6f89804265a09a3e946832d3687e9c"
+  version "0.6.0"
+  sha256 "a1d6e107edccaa7d898342ec5c43b7911b5e1cea80b2216bc10eb720d78768df"
 
   url "https://github.com/dufu1991/foldgit/releases/download/v#{version}/FoldGit-macOS-arm64.dmg"
   name "FoldGit"
